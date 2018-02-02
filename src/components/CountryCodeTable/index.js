@@ -9,6 +9,10 @@ class CountryCodeTable extends Component {
   }
 
   getRows (data) {
+    //need to add something which could take the text and see if it is included in the data. 
+    //I used my personal project just seeing a different way I had done it in the past.
+    // Resource; LineItUp-Legit-this-time. I looked in container and components/DealComponents/Mens.jsx
+    const searchMatch = (item) => item.includes(this.props.search)
     return map(
       ({ name, code, dialCode }) => (
         <tr key={code}>
@@ -47,6 +51,7 @@ class CountryCodeTable extends Component {
         <input name="search" onChange={this.props.searchFunc}/>
       </Row>
   }
+
   render () {
     return (
       <div>
