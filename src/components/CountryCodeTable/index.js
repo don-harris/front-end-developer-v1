@@ -48,7 +48,7 @@ class CountryCodeTable extends Component {
   searchBar() {
     return 
       <Row>
-        <input name="search" onChange={this.props.searchFunc}/>
+        <input name="search" onChange={this.props.searchFunc} value={this.props.search}/>
       </Row>
   }
 
