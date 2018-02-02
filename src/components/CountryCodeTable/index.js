@@ -38,6 +38,15 @@ class CountryCodeTable extends Component {
     )
   }
 
+  //need to create a searchBar function to call a search function when the onChange happens.
+  // Used my personal project LineItUp-Legit-this-time as a resource along with Ready-For-Shreddy (https://github.com/don-harris/Ready-For-Shreddy)
+
+  searchBar() {
+    return 
+      <Row>
+        <input name="search" onChange={this.props.searchFunc}/>
+      </Row>
+  }
   render () {
     return (
       <div>
