@@ -28,6 +28,8 @@ class CountryCodeTable extends Component {
     )
   }
 
+  //removed searchBar renderer and just placed the input straight into render()
+
   getTable (data) {
     return data ? (
       <Table striped responsive>
@@ -54,7 +56,9 @@ class CountryCodeTable extends Component {
         <Row key='header-row'>
           <h1>Country Calling Codes</h1>
         </Row>
-      <input name="search" onChange={this.props.searchFunc} value={this.props.search}/>
+        <h3>Search:</h3><input name="search" onChange={this.props.searchFunc} value={this.props.search}/>
+        <br/>
+        <hr/>
         <Row key='body-row'>{this.getTable(this.props.externalData)}</Row>,
       </div>
     )
