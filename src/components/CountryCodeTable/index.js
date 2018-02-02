@@ -22,7 +22,7 @@ class CountryCodeTable extends Component {
           <td>{dialCode}</td>
         </tr>
       ),
-      data
+      data.filter(({name, code, dialCode}) => searchMatch(name) || searchMatch(code) || searchMatch(dialCode))
     )
   }
 
@@ -53,7 +53,6 @@ class CountryCodeTable extends Component {
           <h1>Country Calling Codes</h1>
         </Row>
       <input name="search" onChange={this.props.searchFunc} value={this.props.search}/>
-        {this.searchBar()}
         <Row key='body-row'>{this.getTable(this.props.externalData)}</Row>,
       </div>
     )
