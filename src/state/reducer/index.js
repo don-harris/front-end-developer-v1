@@ -1,25 +1,13 @@
-import { EXTERNAL_DATA_LOAD_FAILED, EXTERNAL_DATA_LOADED } from '../constants'
+//used personal project LineItUp to see what is needed for a combined reducer. (https://github.com/don-harris/LineItUp-Legit-this-time/blob/master/client/reducers/index.js)
 
-const initialState = {}
+// I decided to add in the combine reducer because that's what I've used many times. I moved the original reducer into its own file. 
 
-const reducer = function (state = initialState, action) {
-  switch (action.type) {
-    case EXTERNAL_DATA_LOAD_FAILED: {
-      return {
-        ...state,
-        externalDataLoadError: action.payload.externalDataLoadError
-      }
-    }
-    case EXTERNAL_DATA_LOADED: {
-      return {
-        ...state,
-        externalData: action.payload.externalData
-      }
-    }
-    default: {
-      return state
-    }
-  }
-}
+import { combineReducers } from 'redux'
 
-export default reducer
+import externalData from './externalData'
+import search from 'search'
+
+export default combineReducers({
+  externalData,
+  search
+})
