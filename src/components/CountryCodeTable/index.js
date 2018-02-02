@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'ramda'
 import { Row, Table, PageHeader } from 'react-bootstrap'
+import { log } from 'util';
 
 class CountryCodeTable extends Component {
   componentDidMount () {
@@ -35,7 +36,7 @@ class CountryCodeTable extends Component {
             <th>Dial Code</th>
           </tr>
         </thead>
-        <tbody>{this.getRows(this.props.externalData)}</tbody>
+        <tbody>{this.getRows(this.props.externalData.externalData)}</tbody>
       </Table>
     ) : (
       <p>Loading data</p>
@@ -44,20 +45,15 @@ class CountryCodeTable extends Component {
 
   //need to create a searchBar function to call a search function when the onChange happens.
   // Used my personal project LineItUp-Legit-this-time as a resource along with Ready-For-Shreddy (https://github.com/don-harris/Ready-For-Shreddy)
-
-  searchBar() {
-    return 
-      <Row>
-        <input name="search" onChange={this.props.searchFunc} value={this.props.search}/>
-      </Row>
-  }
-
+  
   render () {
     return (
       <div>
         <Row key='header-row'>
           <h1>Country Calling Codes</h1>
         </Row>
+      <input name="search" onChange={this.props.searchFunc} value={this.props.search}/>
+        {this.searchBar()}
         <Row key='body-row'>{this.getTable(this.props.externalData)}</Row>,
       </div>
     )
@@ -68,7 +64,7 @@ CountryCodeTable.propTypes = {
   externalData: PropTypes.array,
   initialiseApp: PropTypes.func.isRequired,
   searchFunc: PropTypes.func.isRequired,
-  search: PropTypes.func.isRequired
+  search: PropTypes.string
   
 }
 
