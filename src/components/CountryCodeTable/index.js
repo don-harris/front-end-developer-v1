@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'ramda'
-import { Row, Table } from 'react-bootstrap'
+import { Row, Table, PageHeader } from 'react-bootstrap'
 
 class CountryCodeTable extends Component {
   componentDidMount () {
@@ -66,7 +66,10 @@ class CountryCodeTable extends Component {
 
 CountryCodeTable.propTypes = {
   externalData: PropTypes.array,
-  initialiseApp: PropTypes.func.isRequired
+  initialiseApp: PropTypes.func.isRequired,
+  searchFunc: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired
+  
 }
 
 export default CountryCodeTable

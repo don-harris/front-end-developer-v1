@@ -5,7 +5,7 @@
 import { combineReducers } from 'redux'
 
 import externalData from './externalData'
-import search from 'search'
+import search from './search'
 
 export default combineReducers({
   externalData,
