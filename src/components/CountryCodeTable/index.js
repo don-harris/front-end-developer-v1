@@ -58,6 +58,7 @@ class CountryCodeTable extends Component {
         </Row>
         <h3>Search:</h3><input name="search" onChange={this.props.searchFunc} value={this.props.search}/>
         <br/>
+        <button type="reset" onClick={this.props.searchFunc} value="">Reset</button>
         <hr/>
         <Row key='body-row'>{this.getTable(this.props.externalData)}</Row>,
       </div>
